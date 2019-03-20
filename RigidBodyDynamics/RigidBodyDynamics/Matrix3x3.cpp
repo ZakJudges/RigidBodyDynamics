@@ -20,11 +20,20 @@ Vector Matrix3x3::StandardRotation(Vector p, Vector axis, float angle)
 	const float sin_theta = sin(angle);
 
 	//	Lamba rotation matrix;
-	values_[0][0] = (alpha * alpha * (1.0f - cos_theta)) + cos_theta; values_[0][1] = (alpha * beta * (1.0f - cos_theta)) - (gamma * sin_theta); values_[0][2] = (alpha * gamma * (1.0f - cos_theta)) + (beta * sin_theta);
-	values_[1][0] = (alpha * beta * (1.0f - cos_theta)) + (gamma * sin_theta); values_[1][1] = (beta * beta * (1.0f - cos_theta)) + cos_theta; values_[1][2] = (beta * gamma * (1.0f - cos_theta)) - (alpha * sin_theta);
-	values_[2][0] = (alpha * gamma * (1.0f - cos_theta)) - (beta * sin_theta); values_[2][1] = (beta * gamma * (1.0f - cos_theta)) + (alpha * sin_theta); values_[2][2] = (gamma * gamma * (1.0f - cos_theta)) + cos_theta;
+	//		First Row.
+	values_[0][0] = (alpha * alpha * (1.0f - cos_theta)) + cos_theta;
+	values_[0][1] = (alpha * beta * (1.0f - cos_theta)) - (gamma * sin_theta);
+	values_[0][2] = (alpha * gamma * (1.0f - cos_theta)) + (beta * sin_theta);
+	//		Second Row.
+	values_[1][0] = (alpha * beta * (1.0f - cos_theta)) + (gamma * sin_theta);
+	values_[1][1] = (beta * beta * (1.0f - cos_theta)) + cos_theta; 
+	values_[1][2] = (beta * gamma * (1.0f - cos_theta)) - (alpha * sin_theta);
+	//		Third Row.
+	values_[2][0] = (alpha * gamma * (1.0f - cos_theta)) - (beta * sin_theta); 
+	values_[2][1] = (beta * gamma * (1.0f - cos_theta)) + (alpha * sin_theta); 
+	values_[2][2] = (gamma * gamma * (1.0f - cos_theta)) + cos_theta;
 
-	//	Now transform the given point by the calculated rotation matrix.
+	//	Now multiply the position vector by the matrix to get the position of the transformed point.
 	Vector new_p;
 	new_p.x = (values_[0][0] * p.x) + (values_[0][1] * p.y) + (values_[0][2] * p.z);
 	new_p.y = (values_[1][0] * p.x) + (values_[1][1] * p.y) + (values_[1][2] * p.z);

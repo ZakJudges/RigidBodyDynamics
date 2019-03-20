@@ -10,9 +10,9 @@ int main()
 	const float step_size = 0.016666666f;
 
 	//	Define initial conditions for the cone:
-	float radius = 1.0f;
-	float height = 4.0f;
-	float mass = 10.0f;
+	const float radius = 1.0f;
+	const float height = 4.0f;
+	const float mass = 10.0f;
 	Vector angular_velocity;
 	angular_velocity.x = 3.0f;
 	angular_velocity.y = 1.0f;
@@ -25,7 +25,7 @@ int main()
 	//	Create the cone.
 	Cone cone(radius, height, mass, angular_velocity, linear_velocity);
 
-	//	Create the files to output the rigid body data to.
+	//	Create the text files to output the plot data to.
 	std::ofstream file_w("w.txt");
 	std::ofstream file_v("v.txt");
 	std::ofstream file_r("r.txt");
@@ -40,10 +40,10 @@ int main()
 	//	Simulate 20 seconds of motion for the cone.
 	while (timer < 20.0f)
 	{
-		//	Update velocities and displacement of cone.
-		cone.Step();
+		//	Update simulation of motion of the cone.
+		cone.Step(timer);
 
-		//	Get the velocities and displacement of the cone.
+		//	Get the plot data from the cone.
 		w = cone.GetAngularVelocity();
 		v = cone.GetLinearVelocity();
 		r = cone.GetDisplacement();
@@ -67,10 +67,9 @@ int main()
 			file_p << timer << " " << p.x << " " << p.y << " " << p.z << std::endl;
 		}
 
-
 		//	Time step has finished, so increment the counter.
 		timer += step_size;
 	}
-	getchar();
+	
 	return 0;
 }

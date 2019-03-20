@@ -1,3 +1,12 @@
-﻿  Cone.cpp
+﻿  main.cpp
+  RigidBody.cpp
+  Matrix3x3.cpp
+d:\university\mat401\rigidbodydynamics\rigidbodydynamics\rigidbodydynamics\matrix3x3.cpp(19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\university\mat401\rigidbodydynamics\rigidbodydynamics\rigidbodydynamics\matrix3x3.cpp(19): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+d:\university\mat401\rigidbodydynamics\rigidbodydynamics\rigidbodydynamics\matrix3x3.cpp(20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\university\mat401\rigidbodydynamics\rigidbodydynamics\rigidbodydynamics\matrix3x3.cpp(20): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+  Cone.cpp
+d:\university\mat401\rigidbodydynamics\rigidbodydynamics\rigidbodydynamics\cone.cpp(95): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
   RigidBodyDynamics.vcxproj -> D:\University\MAT401\RigidBodyDynamics\RigidBodyDynamics\Debug\RigidBodyDynamics.exe
   RigidBodyDynamics.vcxproj -> D:\University\MAT401\RigidBodyDynamics\RigidBodyDynamics\Debug\RigidBodyDynamics.pdb (Partial PDB)
